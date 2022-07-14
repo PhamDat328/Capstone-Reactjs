@@ -11,8 +11,7 @@ export const getBannerMovieShowing = createAsyncThunk(
   async () => {
     try {
       const { data } = await movieAPI.getBannerMovieShowing();
-      console.log(data);
-      return { bannerMovies: data };
+      return { bannerMovies: data.content };
     } catch (error) {
       console.log(error);
     }
