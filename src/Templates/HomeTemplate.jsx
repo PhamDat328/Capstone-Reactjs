@@ -6,7 +6,6 @@ const HomeTemplate = () => {
   return (
     <div>
       <HeaderHome />
-
       <Outlet />
     </div>
   );
