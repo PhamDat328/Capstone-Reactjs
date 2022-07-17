@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { getBannerMovieShowing } from "../../Slice/movie";
+import React from "react";
+import { useSelector } from "react-redux";
+
 import "./Carousel.css";
 
 const Carousel = () => {
@@ -9,13 +9,7 @@ const Carousel = () => {
     "https://www.youtube.com/embed/ZT7rSBbhFGE",
     "https://www.youtube.com/embed/uqJ9u7GSaYM",
   ];
-  const { bannerMovies } = useSelector((state) => state.movie);
-  const dispatch = useDispatch();
-  // console.log(bannerMovies);
-
-  useEffect(() => {
-    dispatch(getBannerMovieShowing());
-  }, []);
+  const { bannerMovies } = useSelector((state) => state.movieReducer.bannerMovie);
 
   const displayBannerTrailer = (maBanner) => {
     console.log(maBanner);
