@@ -17,7 +17,7 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div>
+    <div className="app">
       <Carousel />
       <SelectFilm />
       <MovieList />

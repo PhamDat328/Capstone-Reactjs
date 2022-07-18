@@ -3,6 +3,7 @@ import movieAPI from "../Services/movieAPI";
 import { combineReducers } from "redux";
 
 const initialState = {
+  isDisplayTrailer: false,
   bannerMovies: [],
   movieShowing: [],
   selectPage: 1,
