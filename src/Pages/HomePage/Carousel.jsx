@@ -13,7 +13,9 @@ const Carousel = () => {
     "https://www.youtube.com/embed/kBY2k3G6LsM",
     "https://www.youtube.com/embed/ZT7rSBbhFGE",
   ];
-  const { bannerMovies } = useSelector((state) => state.movie);
+  const { bannerMovies } = useSelector(
+    (state) => state.movieReducer.bannerMovie
+  );
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -23,7 +25,7 @@ const Carousel = () => {
   const displayBannerTrailer = (maBanner) => {
     setDisplayTrailer(true);
     setBannerId(maBanner);
-    console.log(bannerTrailerRef.current.style);
+    // console.log(bannerTrailerRef.current.style);
   };
 
   return (
