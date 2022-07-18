@@ -8,7 +8,7 @@ import Apps from "./Apps";
 import Footer from "./Footer";
 const HomePage = () => {
   return (
-    <div>
+    <div className="app">
       <Carousel />
       <SelectFilm />
       <MovieList />

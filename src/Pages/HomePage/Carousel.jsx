@@ -1,33 +1,45 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getBannerMovieShowing } from "../../Slice/movie";
 import "./Carousel.css";
 
 const Carousel = () => {
+  const [isDisplayTrailer, setDisplayTrailer] = useState(false);
+  const [bannerId, setBannerId] = useState(0);
+  const bannerTrailerRef = useRef();
   const bannerTrailer = [
+    "https://www.youtube.com/embed/uqJ9u7GSaYM",
     "https://www.youtube.com/embed/kBY2k3G6LsM",
     "https://www.youtube.com/embed/ZT7rSBbhFGE",
-    "https://www.youtube.com/embed/uqJ9u7GSaYM",
   ];
   const { bannerMovies } = useSelector((state) => state.movie);
   const dispatch = useDispatch();
-  // console.log(bannerMovies);
 
   useEffect(() => {
     dispatch(getBannerMovieShowing());
   }, []);
 
   const displayBannerTrailer = (maBanner) => {
-    console.log(maBanner);
+    setDisplayTrailer(true);
+    setBannerId(maBanner);
+    console.log(bannerTrailerRef.current.style);
   };
 
   return (
-    <div>
+    <div className="carousel">
+      {isDisplayTrailer && (
+        <div
+          className="cover"
+          onClick={() => {
+            setDisplayTrailer(false);
+          }}
+        ></div>
+      )}
       <div
         id="carouselExampleIndicators"
         className="carousel slide"
         data-bs-ride="carousel"
-        // data-bs-interval="false"
       >
         <div className="carousel-indicators">
           <button
@@ -92,6 +104,27 @@ const Carousel = () => {
           <span className="visually-hidden">Next</span>
         </button>
       </div>
+      {isDisplayTrailer && (
+        <div className="bannerTrailer" ref={bannerTrailerRef}>
+          <div
+            className="close"
+            onClick={() => {
+              setDisplayTrailer(false);
+            }}
+          >
+            X
+          </div>
+          <iframe
+            width={885}
+            height={498}
+            src={`${bannerTrailer[bannerId - 1]}?autoplay=1`}
+            title="LẬT MẶT: 48H - Ly Hai Production | Official Trailer | Khởi Chiếu 16.04.2021"
+            frameBorder={0}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        </div>
+      )}
     </div>
   );
 };
