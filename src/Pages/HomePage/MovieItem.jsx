@@ -34,7 +34,7 @@ const MovieItem = () => {
   return (
     <div>
       <div className="row">
-        {movieShowing.items.map((movie) => {
+        {movieShowing?.map((movie) => {
           return (
             <div key={movie.maPhim} className="col-sm-3">
               <div className="card" style={{ width: "18rem" }}>
