@@ -7,7 +7,6 @@ import News from "./News";
 import Apps from "./Apps";
 import Footer from "./Footer";
 import { useDispatch, useSelector } from "react-redux";
-import { getMovieShowing } from "../../Slice/movie";
 import { getBannerMovieShowing } from "../../Slice/movie";
 
 const HomePage = () => {
@@ -15,7 +14,6 @@ const HomePage = () => {
 
   useEffect(() => {
     dispatch(getBannerMovieShowing());
-    dispatch(getMovieShowing());
   }, []);
 
   return (
