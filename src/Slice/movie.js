@@ -6,7 +6,7 @@ const initialState = {
   isDisplayTrailer: false,
   bannerMovies: [],
   movieShowing: [],
-  selectPage: 1,
+  movieTrailer: "",
 };
 
 // thunk action
@@ -22,14 +22,12 @@ export const getBannerMovieShowing = createAsyncThunk(
   }
 );
 
-export const getMovieShowingPages = createAsyncThunk(
+export const getMovieShowing = createAsyncThunk(
   "movie/getMovieShowingPages",
-  async () => {
+  async (params, thunkAPI) => {
     try {
-      const { data } = await movieAPI.getMovieShowingPages(
-        initialState.selectPage
-      );
-      return { movieShowing: data.content.items };
+      const { data } = await movieAPI.getMovieShowing();
+      return { movieShowing: data.content };
     } catch (error) {
       console.log(error);
     }
@@ -40,16 +38,16 @@ const movieList = createSlice({
   name: "movieList",
   initialState,
   reducers: {
-    setSelectPage: (state, action) => {
-      state.selectPage = action.payload;
+    setMovieTrailer: (state, action) => {
+      state.movieTrailer = action.payload;
     },
   },
   extraReducers: {
-    [getMovieShowingPages.pending]: (state, { payload }) => {},
-    [getMovieShowingPages.fulfilled]: (state, { payload }) => {
+    [getMovieShowing.pending]: (state, { payload }) => {},
+    [getMovieShowing.fulfilled]: (state, { payload }) => {
       state.movieShowing = payload.movieShowing;
     },
-    [getMovieShowingPages.rejected]: (state, { error }) => {
+    [getMovieShowing.rejected]: (state, { error }) => {
       state.error = error.message;
     },
   },
@@ -70,10 +68,11 @@ const bannerMovie = createSlice({
   },
 });
 
+export const { setMovieTrailer } = movieList.actions;
+
 const movieReducer = combineReducers({
   movieList: movieList.reducer,
   bannerMovie: bannerMovie.reducer,
 });
 
-export const { setSelectPage } = movieList.actions;
 export default movieReducer;
