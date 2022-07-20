@@ -2,17 +2,19 @@ import React, { useEffect, useState } from "react";
 import { useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getBannerMovieShowing } from "../../Slice/movie";
+import BannerTrailer from "./BannerTrailer";
 import "./Carousel.css";
+import PlayTrailer from "./PlayTrailer";
 
 const Carousel = () => {
   const [isDisplayTrailer, setDisplayTrailer] = useState(false);
   const [bannerId, setBannerId] = useState(0);
   const bannerTrailerRef = useRef();
-  const bannerTrailer = [
-    "https://www.youtube.com/embed/uqJ9u7GSaYM",
-    "https://www.youtube.com/embed/kBY2k3G6LsM",
-    "https://www.youtube.com/embed/ZT7rSBbhFGE",
-  ];
+  const carouselRef = useRef();
+  const domToBannerTrailer = (address) => {
+    bannerTrailerRef.current = address;
+  };
+
   const { bannerMovies } = useSelector(
     (state) => state.movieReducer.bannerMovie
   );
@@ -25,11 +27,11 @@ const Carousel = () => {
   const displayBannerTrailer = (maBanner) => {
     setDisplayTrailer(true);
     setBannerId(maBanner);
-    // console.log(bannerTrailerRef.current.style);
+    console.log(bannerTrailerRef.current);
   };
 
   return (
-    <div className="carousel">
+    <div className="carousel" ref={carouselRef}>
       {isDisplayTrailer && (
         <div
           className="cover"
@@ -75,14 +77,10 @@ const Carousel = () => {
                   style={{ height: "630px" }}
                   alt={bannerMovie.maBanner}
                 />
-                <div
-                  className="playTrailer"
-                  onClick={() => {
-                    displayBannerTrailer(bannerMovie.maBanner);
-                  }}
-                >
-                  <i className="fa fa-play"></i>
-                </div>
+                <PlayTrailer
+                  displayBannerTrailer={displayBannerTrailer}
+                  bannerMovie={bannerMovie}
+                />
               </div>
             );
           })}
@@ -107,25 +105,11 @@ const Carousel = () => {
         </button>
       </div>
       {isDisplayTrailer && (
-        <div className="bannerTrailer" ref={bannerTrailerRef}>
-          <div
-            className="close"
-            onClick={() => {
-              setDisplayTrailer(false);
-            }}
-          >
-            X
-          </div>
-          <iframe
-            width={885}
-            height={498}
-            src={`${bannerTrailer[bannerId - 1]}?autoplay=1`}
-            title="LẬT MẶT: 48H - Ly Hai Production | Official Trailer | Khởi Chiếu 16.04.2021"
-            frameBorder={0}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          />
-        </div>
+        <BannerTrailer
+          bannerId={bannerId}
+          setDisplayTrailer={setDisplayTrailer}
+          domToBannerTrailer={domToBannerTrailer}
+        />
       )}
     </div>
   );
