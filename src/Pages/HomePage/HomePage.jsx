@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import Carousel from "./Carousel";
 import SelectFilm from "./SelectFilm";
-import MovieList from "./MovieList";
 import CinemaList from "./CinemaList";
 import News from "./News";
 import Apps from "./Apps";
 import Footer from "./Footer";
 import { useDispatch } from "react-redux";
 import { getBannerMovieShowing } from "../../Slice/movie";
+import MovieList from "./MovieList/MovieList";
 
 const HomePage = () => {
   const dispatch = useDispatch();
