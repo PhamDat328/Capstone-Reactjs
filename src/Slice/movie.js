@@ -3,7 +3,6 @@ import movieAPI from "../Services/movieAPI";
 import { combineReducers } from "redux";
 
 const initialState = {
-  isDisplayTrailer: false,
   bannerMovies: [],
   movieShowing: [],
   selectPage: 1,
@@ -26,7 +25,9 @@ export const getMovieShowingPages = createAsyncThunk(
   "movie/getMovieShowingPages",
   async () => {
     try {
-      const {data} = await movieAPI.getMovieShowingPages(initialState.selectPage);
+      const { data } = await movieAPI.getMovieShowingPages(
+        initialState.selectPage
+      );
       return { movieShowing: data.content.items };
     } catch (error) {
       console.log(error);

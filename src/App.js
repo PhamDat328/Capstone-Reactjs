@@ -7,16 +7,16 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    // <BrowserRouter>
-    //   <Routes>
-    //     <Route path="" element={<HomeTemplate />}>
-    //       <Route index element={<HomePage />} />
-    //       <Route path="login" element={<Login />} />
-    //       <Route path="register" element={<Register />} />
-    //     </Route>
-    //   </Routes>
-    // </BrowserRouter>
-    <h1 className="text-3xl font-bold underline">Hello world!</h1>
+    <BrowserRouter>
+      <Routes>
+        <Route path="" element={<HomeTemplate />}>
+          <Route index element={<HomePage />} />
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+    // <h1 className="text-2xl font-bold underline">Hello world!</h1>
   );
 }
 

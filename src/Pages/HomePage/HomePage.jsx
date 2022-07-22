@@ -6,7 +6,7 @@ import CinemaList from "./CinemaList";
 import News from "./News";
 import Apps from "./Apps";
 import Footer from "./Footer";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { getBannerMovieShowing } from "../../Slice/movie";
 
 const HomePage = () => {

@@ -39,12 +39,25 @@
 
 .bannerTrailer {
     position: fixed;
-    top: 52%;
+    /* top: 52%; */
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
     justify-content: center;
     z-index: 10;
+    animation: bottomToCenter 1s;
+    animation-fill-mode: both;
+}
+
+@keyframes bottomToCenter {
+    0% {
+        top: 65%;
+        opacity: 0;
+    }
+    100% {
+        top: 55%;
+        opacity: 1;
+    }
 }
 
 .bannerTrailer .close {

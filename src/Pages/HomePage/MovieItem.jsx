@@ -5,12 +5,7 @@ import { setSelectPage } from "../../Slice/movie";
 import { getMovieShowingPages } from "../../Slice/movie";
 
 const MovieItem = () => {
-
-  const { movieShowing, selectPage } = useSelector(
-    (state) => state.movieReducer.movieList
-  );
-
-  console.log(movieShowing);
+  const { movieShowing } = useSelector((state) => state.movieReducer.movieList);
 
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -23,10 +18,9 @@ const MovieItem = () => {
 
   // hàm để lấy được số trang đang chọn
   const changePage = (page) => {
-
     // set lại giá trị của url
     setSearchParams({ page });
-    
+
     // dùng để thay đổi state selectPage trên store
     dispatch(setSelectPage(page));
   };

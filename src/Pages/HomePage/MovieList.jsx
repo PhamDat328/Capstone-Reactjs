@@ -1,11 +1,7 @@
 import React from "react";
-import {  useSelector } from "react-redux";
 import MovieItem from "./MovieItem";
 
 const MovieList = () => {
-
-
-
   return (
     <div className="container">
       {/* {movieShowing.map((movie) => {
