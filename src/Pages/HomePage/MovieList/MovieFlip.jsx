@@ -2,14 +2,19 @@ import React from "react";
 import "./MovieItem.css";
 import { useDispatch } from "react-redux";
 import { setMovieTrailer } from "../../../Slice/movie";
+import { useNavigate } from "react-router-dom";
+import Button from "react-bootstrap/Button";
+import MyVerticallyCenteredModal from "../../Detail/MyVerticallyCenteredModal";
 
 const MovieFlip = (props) => {
-  const { movie } = props;
-  const dispatch = useDispatch();
+  const [modalShow, setModalShow] = React.useState(false);
 
-  const handleTrailerMovie = (movieTrailer) => {
-    // console.log(movieReducer.movieList.actions);
-    dispatch(setMovieTrailer(movieTrailer));
+  const navigate = useNavigate();
+
+  const { movie } = props;
+
+  const goToDetail = (maPhim) => {
+    navigate(`/detail/${maPhim}`);
   };
 
   return (
@@ -28,8 +33,15 @@ const MovieFlip = (props) => {
             <div className="flip-card-text">
               <h4>{movie.tenPhim}</h4>
 
-              <div>
-                <button
+              <Button className="btnModal" onClick={() => setModalShow(true)}>
+                <i className="fa fa-play"></i>
+              </Button>
+              <MyVerticallyCenteredModal
+                movietrailer={movie.trailer}
+                show={modalShow}
+                onHide={() => setModalShow(false)}
+              />
+              {/* <button
                   type="button"
                   className="btnTrailer"
                   data-bs-toggle="modal"
@@ -37,8 +49,7 @@ const MovieFlip = (props) => {
                   onClick={() => handleTrailerMovie(movie.trailer)}
                 >
                   <i className="fa fa-play"></i>
-                </button>
-              </div>
+                </button> */}
 
               <p className="movieDescription">{movie.moTa}</p>
             </div>
@@ -46,7 +57,9 @@ const MovieFlip = (props) => {
         </div>
       </div>
 
-      <button className="bookTicket">MUA VÉ</button>
+      <button className="bookTicket" onClick={() => goToDetail(movie.maPhim)}>
+        MUA VÉ
+      </button>
     </div>
   );
 };

@@ -4,6 +4,7 @@ import Register from "./Pages/Register/Register";
 import HomePage from "./Pages/HomePage/HomePage";
 import "./index.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import MovieDetail from "./Pages/Detail/MovieDetail";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
+          <Route path="/detail/:movieId" element={<MovieDetail />} />
         </Route>
       </Routes>
     </BrowserRouter>

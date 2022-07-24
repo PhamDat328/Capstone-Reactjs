@@ -7,6 +7,9 @@ const movieAPI = {
   getMovieShowing: () => {
     return axiosClient.get("QuanLyPhim/LayDanhSachPhim?maNhom=GP02", {});
   },
+  getMovieShowingDetail: (movieId) => {
+    return axiosClient.get(`QuanLyPhim/LayThongTinPhim?MaPhim=${movieId}`);
+  },
 };
 
 export default movieAPI;
