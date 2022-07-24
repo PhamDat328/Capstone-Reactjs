@@ -2,7 +2,7 @@ import React from "react";
 import MovieItem from "../MovieList/MovieItem";
 const MovieList = () => {
   return (
-    <div className="container">
+    <div className="container mb-5">
       <MovieItem />
     </div>
   );
