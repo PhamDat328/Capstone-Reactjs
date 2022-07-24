@@ -64,6 +64,11 @@
 .flip-card-text {
   position: absolute;
   top: 10%;
+  padding: 0 1rem;
+}
+.flip-card-text h4 {
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 .flip-card-item {
   padding: 1rem;
@@ -82,22 +87,20 @@
 }
 .bookTicket:hover {
   background-color: rgb(237, 10, 10);
-
 }
-.btnTrailer {
+.btnModal {
   width: 70px;
   height: 70px;
   color: #fff;
   text-align: center;
   border-radius: 50%;
-  border: 1px solid #fff;
+  border: 2px solid #fff;
   background: transparent;
   margin: 1rem 0 1rem 0;
 }
-.btnTrailer i {
-  width: 40px;
-}
-.btnTrailer:hover {
-  border-color: rgb(175, 175, 175);
-  color: rgb(175, 175, 175);
+
+.btnModal:hover {
+  background-color: transparent;
+  color: rgb(168, 165, 165);
+  border-color: rgb(168, 165, 165);
 }

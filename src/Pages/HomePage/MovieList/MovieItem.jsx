@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from "react-redux";
 import Slider from "react-slick";
 import { getMovieShowing } from "../../../Slice/movie";
 import MovieFlip from "./MovieFlip";
-import TrailerMovieList from "./TrailerMovieList";
 import './Slick.css'
 const MovieItem = () => {
   const { movieShowing } = useSelector((state) => state.movieReducer.movieList);
@@ -36,12 +35,10 @@ const MovieItem = () => {
             <MovieFlip
               key={movie.maPhim}
               movie={movie}
-             
             />
           );
         })}
       </Slider>
-      <TrailerMovieList />
     </div>
   );
 };

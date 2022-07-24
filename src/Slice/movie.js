@@ -5,7 +5,7 @@ import { combineReducers } from "redux";
 const initialState = {
   bannerMovies: [],
   movieShowing: [],
-  movieTrailer: "",
+  movieDetail: {},
 };
 
 // thunk action
@@ -37,9 +37,7 @@ const movieList = createSlice({
   name: "movieList",
   initialState,
   reducers: {
-    setMovieTrailer: (state, action) => {
-      state.movieTrailer = action.payload;
-    },
+ 
   },
   extraReducers: {
     [getMovieShowing.pending]: (state, { payload }) => {},
@@ -67,11 +65,38 @@ const bannerMovie = createSlice({
   },
 });
 
-export const { setMovieTrailer } = movieList.actions;
+export const getMovieShowingDetail = createAsyncThunk(
+  "movie/getMovieShowingDetail",
+  async (params) => {
+    try {
+      const { data } = await movieAPI.getMovieShowingDetail(params);
+      return { movieDetail: data.content };
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
+
+const movieDetail = createSlice({
+  name: "movieDetail",
+  initialState,
+  reducers: {},
+  extraReducers: {
+    [getMovieShowingDetail.pending]: (state, { payload }) => {},
+    [getMovieShowingDetail.fulfilled]: (state, { payload }) => {
+      state.movieDetail = payload.movieDetail;
+    },
+    [getMovieShowingDetail.rejected]: (state, { error }) => {
+      state.error = error.message;
+    },
+  },
+});
+
 
 const movieReducer = combineReducers({
   movieList: movieList.reducer,
   bannerMovie: bannerMovie.reducer,
+  movieDetail: movieDetail.reducer,
 });
 
 export default movieReducer;

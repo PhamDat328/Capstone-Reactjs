@@ -1,0 +1,99 @@
+.movieDetail {
+  background-color: #0a2029;
+  height: 1250px;
+}
+.movie-container {
+  padding-top: 150px;
+}
+.movie-container .row {
+  display: flex;
+  padding: 0 12rem;
+  align-items: center;
+}
+.movie-image {
+  transition: all 0.5s;
+}
+
+.col-1 {
+  width: 25%;
+}
+.col-2 {
+  width: 50%;
+}
+.col-3 {
+  width: 25%;
+}
+.movie-image {
+  position: relative;
+}
+.movie-image img {
+  border-radius: 10px;
+}
+
+.text-info-movie {
+  color: #fff;
+}
+
+.movie-image:hover .btnTrailer {
+  display: block;
+}
+
+.text-info-movie h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.text-info-movie p {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.text-info-movie a {
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  font-size: medium;
+  margin-top: 1.5rem;
+  font-weight: 700;
+  border-radius: 4px;
+  background-color: #fb4226;
+  transition: all 0.3s ease;
+}
+.text-info-movie a:hover {
+  color: #fff;
+  background-color: #bf3925;
+}
+.rated h2 {
+  color: #fff;
+  width: 100px;
+  border-radius: 50%;
+  height: 100px;
+  background-color: red;
+  text-align: center;
+  line-height: 100px;
+  font-size: 3rem;
+}
+.start i {
+  margin-top: 2rem;
+  color: #fb4226;
+  font-size: 1.3rem;
+}
+
+.btnTrailer {
+  width: 80px;
+  height: 80px;
+  color: #fff;
+  text-align: center;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  background: transparent;
+  margin: 1rem 0 1rem 0;
+  position: absolute;
+  left: 28%;
+  top: 30%;
+  display: none;
+}
+.btnTrailer:hover {
+  background-color: transparent;
+  color: rgb(168, 165, 165);
+  border-color: rgb(168, 165, 165);
+}
