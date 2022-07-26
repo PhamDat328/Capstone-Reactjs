@@ -1,6 +1,8 @@
 .movieDetail {
   background-color: #0a2029;
-  height: 1250px;
+  /* height: 1250px; */
+  min-height: 100vh;
+
 }
 .movie-container {
   padding-top: 150px;
@@ -142,6 +144,7 @@
   margin-left: 1.5rem;
   font-size: 17px;
   text-transform: capitalize;
+  margin-bottom: 0;
 }
 
 .theater-list {
@@ -152,12 +155,13 @@
 .theater-item {
   display: flex;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 1.8rem;
 }
 .theater-item p {
   font-weight: bold;
   font-size: 20px;
   color: rgb(139, 195, 74);
+  margin-bottom: 0;
 }
 .theater-item span {
   color: rgb(131, 130, 130);
@@ -178,7 +182,7 @@
   border: 1px solid #e4e4e4;
   cursor: pointer;
   margin: 0px 16px 16px 0px;
-  padding: 8px;
+  padding: 8px 8px 8px 14px;
   border-radius: 4px;
   text-decoration: none;
   background-color: rgba(246, 246, 246, 0.5);
@@ -192,6 +196,7 @@
 .showtimeBtn p {
   color: #108f3e;
   font-weight: 600;
+  margin-bottom: 0;
 }
 .showtimeBtn h6 {
   margin: 0 0.5rem;
