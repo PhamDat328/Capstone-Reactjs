@@ -1,7 +1,5 @@
 import React from "react";
 import "./MovieItem.css";
-import { useDispatch } from "react-redux";
-import { setMovieTrailer } from "../../../Slice/movie";
 import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import MyVerticallyCenteredModal from "../../Detail/MyVerticallyCenteredModal";
