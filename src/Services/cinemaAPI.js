@@ -18,6 +18,13 @@ const cinemaAPI = {
       },
     });
   },
+  getMovieDetailSchedule: (maPhim) => {
+    return axiosClient.get("QuanLyRap/LayThongTinLichChieuPhim", {
+      params: {
+        maPhim,
+      },
+    });
+  },
 };
 
 export default cinemaAPI;

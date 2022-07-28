@@ -8,7 +8,7 @@
 
 .cinema-logo {
     width: 100px;
-    border: 0.5px solid rgb(199, 193, 193);
+    border: 0.5px solid rgb(237, 235, 235);
     display: flex;
     border-right: none;
     flex-direction: column;
@@ -22,7 +22,7 @@
     position: relative;
     padding: 22.5px 20px;
     width: 100%;
-    border-bottom: 0.5px solid rgb(199, 193, 193);
+    border-bottom: 0.5px solid rgb(237, 235, 235);
 }
 
 .cinema-logo:last-child {
@@ -58,7 +58,7 @@
 }
 
 .list-cinemas {
-    border: 0.5px solid rgb(199, 193, 193);
+    border: 0.5px solid rgb(237, 235, 235);
     border-right: none;
     padding: 0;
     width: 300px;
@@ -74,10 +74,9 @@
 }
 
 .cinema-item {
-
     padding: 15px 15px 10px 20px;
     width: 100%;
-    border-bottom: 0.3px solid rgb(199, 193, 193);
+    border-bottom: 0.3px solid rgb(237, 235, 235);
 }
 
 .cinema-name {
@@ -106,6 +105,7 @@
     color: red;
     font-weight: 600;
     height: 25px;
+    margin: 0;
 }
 
 .address {
@@ -119,7 +119,7 @@
 
 .list-films {
     scroll-behavior: smooth;
-    border: 0.5px solid rgb(199, 193, 193);
+    border: 0.5px solid rgb(237, 235, 235);
     width: 700px;
     overflow-y: scroll;
     height: 720px;

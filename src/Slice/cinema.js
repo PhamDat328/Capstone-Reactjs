@@ -6,6 +6,7 @@ const initialState = {
   cinemaList: [],
   cinemaListInfo: [],
   movieSchedule: [],
+  movieDetailSchedule: [],
 };
 
 export const getCinemaList = createAsyncThunk(
@@ -38,6 +39,18 @@ export const getMovieScheduleByCinema = createAsyncThunk(
     try {
       const { data } = await cinemaAPI.getMovieScheduleByCinema();
       return { movieSchedule: data.content };
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
+
+export const getMovieDetailSchedule = createAsyncThunk(
+  "cinema/getMovieDetailSchedule",
+  async (params) => {
+    try {
+      const { data } = await cinemaAPI.getMovieDetailSchedule(params);
+      return { movieDetailSchedule: data.content };
     } catch (error) {
       console.log(error);
     }
@@ -89,10 +102,26 @@ const movieSchedule = createSlice({
   },
 });
 
+const movieDetailSchedule = createSlice({
+  name: "movieDetailSchedule",
+  initialState,
+  reducer: {},
+  extraReducers: {
+    [getMovieDetailSchedule.pending]: (state, { payload }) => {},
+    [getMovieDetailSchedule.fulfilled]: (state, { payload }) => {
+      state.movieDetailSchedule = payload.movieDetailSchedule;
+    },
+    [getMovieDetailSchedule.rejected]: (state, { error }) => {
+      state.error = error.message;
+    },
+  },
+});
+
 const cinemaReducer = combineReducers({
   cinemaList: cinemaList.reducer,
   cinemaListInfo: cinemaListInfo.reducer,
   movieSchedule: movieSchedule.reducer,
+  movieDetailSchedule: movieDetailSchedule.reducer,
 });
 
 export default cinemaReducer;

@@ -6,7 +6,7 @@ import {
   getMovieScheduleByCinema,
 } from "../../../Slice/cinema";
 import clsx from "clsx";
-import "animate.css";
+// import "animate.css";
 import "./cinemaList.css";
 
 const CinemaList = () => {
