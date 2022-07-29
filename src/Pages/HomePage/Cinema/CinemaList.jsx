@@ -53,7 +53,7 @@ const CinemaList = () => {
 
   return (
     <>
-      <div className="cinema-container">
+      <div className="cinema-container" id="cinema">
         <div className="row">
           <div className="cinema-logo">
             {cinemaList.map((item, index) => {

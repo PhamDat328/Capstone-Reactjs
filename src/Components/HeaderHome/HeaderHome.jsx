@@ -20,12 +20,12 @@ const HeaderHome = () => {
         >
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
+              <a className="nav-link active" aria-current="page" href="#movieList">
                 Lịch Chiếu
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <a className="nav-link" href="#cinema">
                 Cụm Rạp
               </a>
             </li>

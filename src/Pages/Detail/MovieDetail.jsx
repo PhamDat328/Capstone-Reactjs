@@ -70,7 +70,10 @@ const MovieDetail = () => {
         </div>
       </div>
 
-      <div className="container ml-72 w-2/3 mt-20 bg-white px-4 py-5">
+      <div
+        className="container ml-72 w-2/3 mt-20 bg-white px-4 py-5"
+        style={{ margin: "5rem auto" }}
+      >
         <Tabs tabPosition={"left"}>
           {cinemaListMovie?.map((cinema, index) => {
             return (
