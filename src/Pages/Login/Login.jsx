@@ -1,30 +1,36 @@
 import React from "react";
 import "./Login.css";
+import { useSelector } from "react-redux";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Checkbox, Form, Input } from "antd";
 import { useNavigate } from "react-router-dom";
-import { useForm } from "react-hook-form";
+// import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { handleUserLogin } from "../../Slice/user";
 
 const Login = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  const {
-    register,
-    handleSubmit,
-  } = useForm({
-    defaultValues: {
-      taiKhoan: "",
-      matKhau: "",
-    },
-    mode: "onTouched",
-  });
+  const { userLogin } = useSelector(
+    (state) => state.userReducer.userLoginSlice
+  );
+  // const { register, handleSubmit } = useForm({
+  //   defaultValues: {
+  //     taiKhoan: "",
+  //     matKhau: "",
+  //   },
+  //   mode: "onTouched",
+  // });
 
-  const goToRegister = (maPhim) => {
+  const goToRegister = () => {
     navigate("/register");
   };
-  const onFinish = (values) => {
-    handleSubmit(values);
-    console.log(register);
+
+  const onFinish = (value) => {
+    dispatch(handleUserLogin(value));
+    alert("đăng nhập thành công")
+    navigate("/purchase")
   };
 
   return (
