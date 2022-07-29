@@ -4,7 +4,7 @@ import "./Apps.css";
 const Apps = () => {
   return (
     <div className="apps">
-      <div className="container-xl px-4">
+      <div className="container-xl ">
         <div className="row">
           <div className="col content">
             <div className="text">
