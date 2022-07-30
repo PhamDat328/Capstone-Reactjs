@@ -30,7 +30,7 @@ const Login = () => {
   const onFinish = (value) => {
     dispatch(handleUserLogin(value));
     alert("đăng nhập thành công")
-    navigate("/purchase")
+    // navigate("/purchase")
   };
 
   return (

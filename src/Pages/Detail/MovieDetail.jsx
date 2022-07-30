@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getMovieShowingDetail } from "../../Slice/movie";
 import Button from "react-bootstrap/Button";
 import dayjs from "dayjs";
@@ -21,7 +21,7 @@ const MovieDetail = () => {
   const { movieDetailSchedule } = useSelector(
     (state) => state.cinemaReducer.movieDetailSchedule
   );
-
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const cinemaListMovie = movieDetailSchedule.heThongRapChieu;
@@ -30,6 +30,11 @@ const MovieDetail = () => {
     dispatch(getMovieShowingDetail(movieId));
     dispatch(getMovieDetailSchedule(movieId));
   }, []);
+
+  const handlePurchase = (showtimeId) => {
+    console.log(showtimeId);
+    navigate(`/purchase/${showtimeId}`);
+  };
 
   return (
     <div className="movieDetail">
@@ -104,7 +109,12 @@ const MovieDetail = () => {
                           ?.slice(0, 9)
                           .map((showtimes, index) => (
                             <div className="col-sm-4" key={index}>
-                              <button className="showtimeBtn">
+                              <button
+                                className="showtimeBtn"
+                                onClick={() =>
+                                  handlePurchase(showtimes.maLichChieu)
+                                }
+                              >
                                 <p>
                                   {dayjs(showtimes.ngayChieuGioChieu).format(
                                     "DD-MM-YYYY "
