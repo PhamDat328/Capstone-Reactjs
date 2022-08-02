@@ -7,7 +7,7 @@ import "./new.css";
 
 const News = () => {
   const activeBar = document.getElementsByClassName("news-active");
-  const [newsDisplay, setNewsDisplay] = useState();
+  const [newsDisplay, setNewsDisplay] = useState(0);
   const [isDisplay, setIsDisplay] = useState(false);
 
   return (
