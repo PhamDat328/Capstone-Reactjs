@@ -1,42 +1,60 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 // import { useSearchParams } from "react-router-dom";
 import Slider from "react-slick";
 import { getMovieShowing } from "../../../Slice/movie";
 import MovieFlip from "./MovieFlip";
-import './Slick.css'
+import "./Slick.css";
 const MovieItem = () => {
   const { movieShowing } = useSelector((state) => state.movieReducer.movieList);
 
   const dispatch = useDispatch();
+  const [windowSize, setWindowSize] = useState(window.innerWidth);
 
   useEffect(() => {
     dispatch(getMovieShowing());
   }, []);
 
-  const settings = {
-    className: "center",
-    // centerMode: true,
-    dots: true,
-    infinite: true,
-    centerPadding: "80px",
-    slidesToShow: 4,
-    speed: 500,
-    rows: 2,
-    slidesPerRow: 1,
-    slidesToScroll: 4,
-  };
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      setWindowSize(window.innerWidth);
+    });
+  }, [windowSize]);
+  let settings = {};
+  {
+    windowSize > 576
+      ? (settings = {
+          className: "center",
+          // centerMode: true,
+          dots: true,
+          infinite: true,
+          centerPadding: "80px",
+          slidesToShow: 4,
+          speed: 500,
+          rows: 2,
+          slidesPerRow: 1,
+          slidesToScroll: 4,
+        })
+      : (settings = {
+          className: "center",
+          // centerMode: true,
+          dots: true,
+          infinite: true,
+          centerPadding: "80px",
+          slidesToShow: 1,
+          speed: 500,
+          rows: 4,
+          slidesPerRow: 1,
+          slidesToScroll: 4,
+          width: "80%",
+        });
+  }
 
   return (
     <div>
       <Slider {...settings}>
         {movieShowing?.map((movie) => {
-          return (
-            <MovieFlip
-              key={movie.maPhim}
-              movie={movie}
-            />
-          );
+          return <MovieFlip key={movie.maPhim} movie={movie} />;
         })}
       </Slider>
     </div>

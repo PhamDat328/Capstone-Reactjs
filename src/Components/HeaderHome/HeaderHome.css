@@ -5,6 +5,20 @@
   font-size: 14px;
 }
 
+.navbar {
+  
+    position: "fixed";
+    z-index: "2";
+    right: 0;
+    left: 0;
+    background-color: "rgba(255,255,255,.95)";
+ 
+}
+
+@media screen and (max-width: 576px) {
+  
+}
+
 hr {
   height: auto;
   align-self: stretch;

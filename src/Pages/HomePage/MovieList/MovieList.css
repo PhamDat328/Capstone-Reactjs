@@ -1,0 +1,10 @@
+#movieList{
+    max-width: 1280px; 
+    padding: 0 4.85rem
+} 
+
+@media screen and (max-width: 576px) {
+    #movieList{
+        padding: 0 2rem;
+    } 
+}

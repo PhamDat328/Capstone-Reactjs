@@ -8,6 +8,7 @@
     padding: 0 2.5rem;
 }
 
+
 .row {
     position: relative;
 }
@@ -27,8 +28,7 @@
 .news-heading {
     transition: all 0.3s;
     font-size: 24px;
-    font-weight: semibold;
-    /* overflow: hidden; */
+    font-weight: 600;
 }
 
 .news-active {
@@ -83,4 +83,25 @@
 
 .sm-poster p {
     font-size: 17px;
+}
+
+@media screen and (max-width: 576px) {
+    .news-container {
+        padding: 0 0.5rem;
+    }
+
+    .news-heading {
+        font-size: 18px;
+    }
+
+    .news-active {
+        display: none;
+    }
+
+    .news-item {
+        text-align: center;
+        cursor: pointer;
+        padding: 0 0.5rem;
+        margin-bottom: 1rem;
+    }
 }

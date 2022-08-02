@@ -4,7 +4,7 @@ import logo from "../../Pages/assets/logo.png";
 
 const Header = () => {
   return (
-    <div className="container-fluid">
+    <div className="container-fluid" style={{ backgroundColor: "blue" }}>
       <ul className="navbar-nav">
         <li className="nav-item">
           <img style={{ width: "70px" }} src={logo} alt="...." />

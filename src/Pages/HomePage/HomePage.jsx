@@ -8,10 +8,6 @@ import MovieList from "./MovieList/MovieList";
 import CinemaList from "./Cinema/CinemaList";
 import News from "./News/News";
 
-
-
-
-
 const HomePage = () => {
   const dispatch = useDispatch();
 

@@ -6,6 +6,12 @@
     margin: 0 auto;
 }
 
+@media screen and (max-width: 576px) {
+    .cinema-container {
+        display: none;
+    }
+}
+
 .cinema-logo {
     width: 100px;
     border: 0.5px solid rgb(237, 235, 235);
@@ -89,17 +95,6 @@
     overflow-y: hidden;
 }
 
-.cinema-item::after {
-    content: "";
-    background-color: rgb(141, 135, 135);
-    animation: ripped 1s;
-}
-
-@keyframes ripple {
-	0%   { transform: translate(-100%, -100%); }
-	80%  { transform: translate(-100%, -100%) scale(50); }
-	100% { transform: translate(-100%, -100%) scale(50); opacity: 0; }
-}
 .cinema-item p {
     font-size: 12px;
     color: red;

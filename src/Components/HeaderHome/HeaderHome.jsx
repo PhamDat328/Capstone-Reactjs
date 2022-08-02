@@ -38,7 +38,7 @@ const HeaderHome = () => {
               onClick={() => {
                 localStorage.removeItem("userLogin");
                 localStorage.removeItem("accessToken");
-                window.location.reload()
+                window.location.reload();
               }}
               className="nav-link"
               to={"/"}
@@ -52,15 +52,7 @@ const HeaderHome = () => {
   };
 
   return (
-    <nav
-      className="p-0 navbar navbar-expand-lg navbar-light "
-      style={{
-        position: "fixed",
-        zIndex: "2",
-        width: "100%",
-        backgroundColor: "rgba(255,255,255,.95)",
-      }}
-    >
+    <nav className="p-0 navbar navbar-expand-lg navbar-light">
       <div className="container-fluid ps-4 pe-4">
         <NavLink className="navbar-brand" to={"/"}>
           <img

@@ -1,14 +1,15 @@
 .apps {
   background: url(https://tcdtist-tix-clone.vercel.app/static/media/backapp.b46ef3a1.jpg);
   background-size: contain;
-  /* background-repeat: no-repeat; */
-  /* background-position: center; */
   padding: 80px 0 80px 0;
 }
 
 .apps .container-xl {
   padding: 0 4rem;
+  display: flex;
+  flex-wrap: wrap;
 }
+
 .banner-img-app {
   max-width: 100%;
   height: auto;
@@ -36,6 +37,7 @@
 .content {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .text {
@@ -43,8 +45,11 @@
   padding: 0 4rem;
 }
 .text h2 {
+  display: inline-block;
+  color: #fff;
   font-size: 2rem;
   font-weight: bold;
+
   line-height: 5rem;
 }
 
@@ -70,4 +75,24 @@
 .text p a {
   color: white;
   text-decoration: underline;
+}
+
+@media screen  and (max-width: 576px) {
+  .content {
+    width: 100%;
+    flex: none;
+  }
+  .text {
+    padding: 0;
+    flex: none;
+
+  }
+  .banner-img {
+    width: 100%;
+  }
+
+  .text h2 {
+    height: 200px;
+    width: 200px;
+  }
 }

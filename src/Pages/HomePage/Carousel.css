@@ -16,6 +16,12 @@
     cursor: pointer;
 }
 
+@media screen and (max-width: 576px) {
+    .carousel {
+        display: none;
+    }
+}
+
 .playTrailer i {
     color: rgb(247, 230, 230);
     font-size: 40px;

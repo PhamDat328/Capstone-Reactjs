@@ -79,6 +79,14 @@
 }
 .flip-card-item {
   padding: 1rem;
+
+}
+
+@media screen and (max-width: 576px) {
+  .flip-card-item {
+    width: 100%;
+    /* padding: 0; */
+}
 }
 
 .bookTicket {

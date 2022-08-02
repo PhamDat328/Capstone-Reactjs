@@ -29,6 +29,7 @@ const CinemaList = () => {
   const [cinemaCluster, setCinemaCluster] = useState(
     "bhd-star-cineplex-bitexco"
   );
+  const [windowSize, setWindowSize] = useState(window.innerWidth);
   // console.log(cinemaName);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -41,7 +42,6 @@ const CinemaList = () => {
   useEffect(() => {
     dispatch(getCinemaListInfo(cinemaName));
   }, [cinemaName]);
-  // console.log(movieSchedule[0].lstCumRap[0].danhSachPhim[0].hinhAnh);
 
   const handleClickCinemaLogo = (cinemaID) => {
     setCinemaName(cinemaID);
@@ -57,6 +57,8 @@ const CinemaList = () => {
   const handlePurchase = (showtimeId) => {
     navigate(`/purchase/${showtimeId}`);
   };
+
+  const handleWindowResize = () => {};
 
   return (
     <>
