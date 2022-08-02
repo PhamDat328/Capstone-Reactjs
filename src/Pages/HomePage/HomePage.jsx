@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import Carousel from "./Carousel";
-import SelectFilm from "./SelectFilm";
 import News from "./News";
 import Apps from "./Apps";
 import Footer from "./Footer";
@@ -19,7 +18,6 @@ const HomePage = () => {
   return (
     <div className="app">
       <Carousel />
-      <SelectFilm />
       <MovieList />
       <CinemaList />
       <News />

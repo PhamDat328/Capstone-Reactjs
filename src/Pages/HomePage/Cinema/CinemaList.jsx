@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
 import {
   getCinemaList,
   getCinemaListInfo,
@@ -10,6 +12,7 @@ import clsx from "clsx";
 import "./cinemaList.css";
 
 const CinemaList = () => {
+  const navigate = useNavigate();
   // useSelector, get date from store
   const { cinemaList } = useSelector((state) => state.cinemaReducer.cinemaList);
   const { cinemaListInfo } = useSelector(
@@ -49,6 +52,10 @@ const CinemaList = () => {
 
   const handleMoveActiveBar = (index, height) => {
     return index * height;
+  };
+
+  const handlePurchase = (showtimeId) => {
+    navigate(`/purchase/${showtimeId}`);
   };
 
   return (
@@ -127,12 +134,19 @@ const CinemaList = () => {
                                     className="container-date-time"
                                     key={LichChieuTheoPhimItem.maLichChieu}
                                   >
-                                    <div className="dateTime">
+                                    <button
+                                      className="dateTime"
+                                      onClick={() =>
+                                        handlePurchase(
+                                          LichChieuTheoPhimItem.maLichChieu
+                                        )
+                                      }
+                                    >
                                       <div className="date">
                                         {dateTime[0] + ` ~ `}
                                       </div>
                                       <div className="time">{dateTime[1]}</div>
-                                    </div>
+                                    </button>
                                   </div>
                                 );
                               }

@@ -1,0 +1,13 @@
+.nav-item:hover a {
+  color: #fb4226;
+}
+.nav-item {
+  font-size: 14px;
+}
+
+hr {
+  height: auto;
+  align-self: stretch;
+  width: 1px;
+  background-color: #000000c4;
+}
