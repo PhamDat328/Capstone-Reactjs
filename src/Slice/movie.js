@@ -23,7 +23,7 @@ export const getBannerMovieShowing = createAsyncThunk(
 
 export const getMovieShowing = createAsyncThunk(
   "movie/getMovieShowingPages",
-  async (params, thunkAPI) => {
+  async () => {
     try {
       const { data } = await movieAPI.getMovieShowing();
       return { movieShowing: data.content };
@@ -36,9 +36,7 @@ export const getMovieShowing = createAsyncThunk(
 const movieList = createSlice({
   name: "movieList",
   initialState,
-  reducers: {
- 
-  },
+  reducers: {},
   extraReducers: {
     [getMovieShowing.pending]: (state, { payload }) => {},
     [getMovieShowing.fulfilled]: (state, { payload }) => {
@@ -91,7 +89,6 @@ const movieDetail = createSlice({
     },
   },
 });
-
 
 const movieReducer = combineReducers({
   movieList: movieList.reducer,

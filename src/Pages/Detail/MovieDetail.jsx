@@ -32,7 +32,6 @@ const MovieDetail = () => {
   }, []);
 
   const handlePurchase = (showtimeId) => {
-    console.log(showtimeId);
     navigate(`/purchase/${showtimeId}`);
   };
 
