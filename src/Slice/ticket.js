@@ -4,6 +4,7 @@ import ticketAPI from "../Services/ticketAPI";
 const initialState = {
   ticketList: [],
   bookingChairList: [],
+  isLoading: false,
 };
 
 export const getTicketList = createAsyncThunk(
@@ -48,8 +49,12 @@ const ticketSlice = createSlice({
     },
   },
   extraReducers: {
-    [getTicketList.pending]: (state, { payload }) => {},
+    [getTicketList.pending]: (state, { payload }) => {
+      state.isLoading = true;
+    },
     [getTicketList.fulfilled]: (state, { payload }) => {
+      state.isLoading = false;
+
       state.ticketList = payload.ticketList;
     },
     [getTicketList.rejected]: (state, { error }) => {

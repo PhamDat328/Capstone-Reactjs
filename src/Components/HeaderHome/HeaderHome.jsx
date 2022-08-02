@@ -1,9 +1,12 @@
 import React, { Fragment } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import _ from "lodash";
+import Swal from "sweetalert2";
 import "./HeaderHome.css";
 const HeaderHome = () => {
+  const navigate = useNavigate();
+
   const { userLogin } = useSelector(
     (state) => state.userReducer.userLoginSlice
   );
@@ -13,13 +16,24 @@ const HeaderHome = () => {
       return (
         <Fragment>
           <li className="nav-item">
-            <NavLink className="nav-link" to={"login"}>
-              Đăng nhập
+            <NavLink
+              style={{ fontSize: "16px" }}
+              className="nav-link d-flex align-items-center"
+              to={"login"}
+            >
+              <i class="fa fa-user mr-2"></i>
+              <p className="mb-0"> Đăng nhập</p>
             </NavLink>
           </li>
+          <hr style={{ width: "2px", height: "auto", alignSelf: "stretch" }} />
           <li className="nav-item">
-            <NavLink className="nav-link" to={"register"}>
-              Đăng ký
+            <NavLink
+              style={{ fontSize: "16px" }}
+              className="nav-link d-flex align-items-center"
+              to={"register"}
+            >
+              <i class="fa fa-user mr-2"></i>
+              <p className="mb-0"> Đăng ký</p>
             </NavLink>
           </li>
         </Fragment>
@@ -28,22 +42,39 @@ const HeaderHome = () => {
       return (
         <Fragment>
           <li className="nav-item">
-            <NavLink className="nav-link" to={"/account"}>
+            <NavLink
+              className="nav-link"
+              style={{ fontSize: "16px", fontWeight: "600" }}
+              to={"/account"}
+            >
               {userLogin.hoTen}
             </NavLink>
           </li>
-          <hr />
-          <li className="nav-item">
+          <hr
+            className="mx-2"
+            style={{ width: "2px", height: "auto", alignSelf: "stretch" }}
+          />
+          <li className="nav-item ">
             <NavLink
               onClick={() => {
                 localStorage.removeItem("userLogin");
                 localStorage.removeItem("accessToken");
-                window.location.reload();
+                Swal.fire({
+                  title: "Đăng xuất thành công ",
+                  icon: "success",
+                  confirmButtonText: "Đóng",
+                  timer: 2000,
+                });
+                setTimeout(() => {
+                  window.location.reload();
+                }, 2000);
               }}
-              className="nav-link"
+              className="nav-link d-flex align-items-center singout"
+              style={{ fontSize: "16px", fontWeight: "600" }}
               to={"/"}
             >
-              Đăng xuất
+              <i class="fa fa-sign-out-alt mr-2"></i>
+              <p className="mb-0">Đăng xuất</p>
             </NavLink>
           </li>
         </Fragment>

@@ -7,15 +7,11 @@ import {
   postBookedList,
 } from "../../Slice/ticket";
 import _ from "lodash";
+import Swal from "sweetalert2";
+
 import "./Purchase.css";
 const Purchase = () => {
   const navigate = useNavigate();
-
-  useEffect(() => {
-    if (!localStorage.getItem("userLogin")) {
-      return navigate("/login");
-    }
-  }, []);
 
   const { showtimeId } = useParams();
   const { ticketList, bookingChairList } = useSelector((state) => state.ticket);
@@ -28,6 +24,8 @@ const Purchase = () => {
     danhSachVe: [],
   };
 
+  const { isLoading } = useSelector((state) => state.ticket);
+
   useEffect(() => {
     dispatch(getTicketList(showtimeId));
   }, []);
@@ -35,6 +33,18 @@ const Purchase = () => {
   const handleBookedChair = (seat) => {
     dispatch(addBookedChair(seat));
   };
+
+  if (isLoading) {
+    return (
+      <div className="loading text-4xl text-white">
+        <img
+          src="https://tcdtist-tix-clone.vercel.app/static/media/loadingPage.a098baa8.gif"
+          width={"600px"}
+          alt=""
+        />
+      </div>
+    );
+  }
 
   const handleBookingTicket = (bookingInfo) => {
     bookedInfo.maLichChieu = showtimeId;
@@ -187,7 +197,16 @@ const Purchase = () => {
             <div className="btnBooking">
               <button
                 onClick={() => {
+                  Swal.fire({
+                    title: "Đặt vé thành công",
+                    icon: "success",
+                    timer: 3000,
+                    confirmButtonText: "Đóng",
+                  });
                   handleBookingTicket(bookingChairList);
+                  setTimeout(() => {
+                    window.location.reload()
+                  }, 3000);
                 }}
               >
                 ĐẶT VÉ

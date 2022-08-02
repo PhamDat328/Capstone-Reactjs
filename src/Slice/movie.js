@@ -6,6 +6,7 @@ const initialState = {
   bannerMovies: [],
   movieShowing: [],
   movieDetail: {},
+  isLoading: false,
 };
 
 // thunk action
@@ -38,8 +39,12 @@ const movieList = createSlice({
   initialState,
   reducers: {},
   extraReducers: {
-    [getMovieShowing.pending]: (state, { payload }) => {},
+    [getMovieShowing.pending]: (state, { payload }) => {
+      state.isLoading = true;
+    },
     [getMovieShowing.fulfilled]: (state, { payload }) => {
+      state.isLoading = false;
+
       state.movieShowing = payload.movieShowing;
     },
     [getMovieShowing.rejected]: (state, { error }) => {
