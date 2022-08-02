@@ -1,13 +1,22 @@
 .nav-item:hover a {
   color: #fb4226;
 }
-.nav-item {
-  font-size: 14px;
-}
 
+.nav-item a {
+  color: #9e9e9e;
+}
 hr {
   height: auto;
   align-self: stretch;
   width: 1px;
   background-color: #000000c4;
+}
+.navbar-nav .nav-link.active:hover,
+.navbar-nav .show > .nav-link {
+  color: #fb4226;
+}
+
+.navbar-nav .nav-link.active,
+.navbar-nav .show > .nav-link {
+  color: #9e9e9e;
 }

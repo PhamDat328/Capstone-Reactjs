@@ -2,8 +2,8 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { combineReducers } from "redux";
 import userAPI from "../Services/userAPI";
 import { history } from "../App";
+import Swal from "sweetalert2";
 let user = {};
-
 if (localStorage.getItem("userLogin")) {
   user = JSON.parse(localStorage.getItem("userLogin"));
 }
@@ -41,16 +41,26 @@ const userLoginSlice = createSlice({
   extraReducers: {
     [handleUserLogin.pending]: (state, { payload }) => {},
     [handleUserLogin.fulfilled]: (state, { payload }) => {
-
       state.userLogin = payload.userLogin;
       localStorage.setItem("userLogin", JSON.stringify(state.userLogin));
       localStorage.setItem("accessToken", state.userLogin.accessToken);
+      Swal.fire({
+        title: "Đăng nhập thành công",
+        icon: "success",
+        confirmButtonText: "Đóng",
+        timer:2000,
+      });
       setTimeout(() => {
         history.back();
-      }, 500);
+      }, 2000);
     },
     [handleUserLogin.rejected]: (state, { error }) => {
-      alert("Tài khoảng hoặc mật khẩu không đúng");
+      Swal.fire({
+        title: "Tài Khoản hoặc mật khẩu không đúng ",
+        icon: "error",
+        confirmButtonText: "Đóng",
+        gridRow: "1",
+      });
       state.error = error.message;
     },
   },
