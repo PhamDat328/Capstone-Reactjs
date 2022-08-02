@@ -8,12 +8,14 @@ import MovieDetail from "./Pages/Detail/MovieDetail";
 import Purchase from "./Pages/Purchase/Purchase";
 import { createBrowserHistory } from "history";
 import Account from "./Pages/Account/Account";
+import Loading from "./Components/Loading/Loading";
 
 export const history = createBrowserHistory();
 
 function App() {
   return (
     <BrowserRouter history={history}>
+      <Loading />
       <Routes>
         <Route path="" element={<HomeTemplate />}>
           <Route index element={<HomePage />} />

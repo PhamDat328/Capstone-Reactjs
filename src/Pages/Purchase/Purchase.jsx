@@ -8,6 +8,7 @@ import {
 } from "../../Slice/ticket";
 import _ from "lodash";
 import "./Purchase.css";
+import Loading from "../../Components/Loading/Loading";
 const Purchase = () => {
   const navigate = useNavigate();
 
@@ -28,6 +29,8 @@ const Purchase = () => {
     danhSachVe: [],
   };
 
+  const { isLoading } = useSelector((state) => state.ticket);
+
   useEffect(() => {
     dispatch(getTicketList(showtimeId));
   }, []);
@@ -35,6 +38,14 @@ const Purchase = () => {
   const handleBookedChair = (seat) => {
     dispatch(addBookedChair(seat));
   };
+
+  if (isLoading) {
+    return (
+      <div className="loading text-4xl text-white">
+          <img src="https://tcdtist-tix-clone.vercel.app/static/media/loadingPage.a098baa8.gif" width={"600px"} alt="" />
+      </div>
+    );
+  }
 
   const handleBookingTicket = (bookingInfo) => {
     bookedInfo.maLichChieu = showtimeId;

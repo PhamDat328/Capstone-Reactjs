@@ -98,7 +98,7 @@ const HeaderHome = () => {
             <li className="nav-item">
               <a
                 className="nav-link"
-                href="#"
+                href="#news"
                 style={{ fontWeight: "bold", marginRight: "10px" }}
               >
                 Tin Tức
