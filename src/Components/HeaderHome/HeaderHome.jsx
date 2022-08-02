@@ -83,7 +83,17 @@ const HeaderHome = () => {
   };
 
   return (
-    <nav className="p-0 navbar navbar-expand-lg navbar-light">
+    <nav
+      className="p-0 navbar navbar-expand-lg navbar-light"
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 2,
+        backgroundColor: "rgba(255, 255, 255, 0.95)",
+      }}
+    >
       <div className="container-fluid ps-4 pe-4">
         <NavLink className="navbar-brand" to={"/"}>
           <img
