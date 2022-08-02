@@ -8,7 +8,6 @@ import MovieList from "./MovieList/MovieList";
 import CinemaList from "./Cinema/CinemaList";
 import News from "./News/News";
 
-import News from "./News";
 
 
 
