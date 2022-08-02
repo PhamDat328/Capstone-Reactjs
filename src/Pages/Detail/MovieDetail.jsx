@@ -8,6 +8,8 @@ import "./MovieDetail.css";
 import MyVerticallyCenteredModal from "./MyVerticallyCenteredModal";
 import { getMovieDetailSchedule } from "../../Slice/cinema";
 import { Tabs } from "antd";
+import Swal from "sweetalert2";
+
 import "antd/dist/antd.css";
 const MovieDetail = () => {
   const { TabPane } = Tabs;
@@ -32,7 +34,19 @@ const MovieDetail = () => {
   }, []);
 
   const handlePurchase = (showtimeId) => {
-    navigate(`/purchase/${showtimeId}`);
+    if (!localStorage.getItem("userLogin")) {
+      Swal.fire({
+        title: "Bạn chưa đăng nhập!!! ",
+        icon: "warning",
+        confirmButtonText: "Đóng",
+        timer: 3000,
+      });
+      setTimeout(() => {
+        return navigate("/login");
+      }, 3000);
+    } else {
+      navigate(`/purchase/${showtimeId}`);
+    }
   };
 
   return (

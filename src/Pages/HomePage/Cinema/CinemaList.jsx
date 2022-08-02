@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 import {
   getCinemaList,
@@ -55,7 +56,19 @@ const CinemaList = () => {
   };
 
   const handlePurchase = (showtimeId) => {
-    navigate(`/purchase/${showtimeId}`);
+    if (!localStorage.getItem("userLogin")) {
+      Swal.fire({
+        title: "Bạn chưa đăng nhập!!! ",
+        icon: "warning",
+        confirmButtonText: "Đóng",
+        timer: 3000,
+      });
+      setTimeout(() => {
+        return navigate("/login");
+      }, 3000);
+    } else {
+      navigate(`/purchase/${showtimeId}`);
+    }
   };
 
   return (
