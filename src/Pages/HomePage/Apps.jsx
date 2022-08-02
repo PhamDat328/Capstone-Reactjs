@@ -3,7 +3,7 @@ import bannerSlider from "../../assets/banner-slider.jpg";
 import "./Apps.css";
 const Apps = () => {
   return (
-    <div className="apps">
+    <div className="apps" id="apps">
       <div className="container-xl ">
         <div className="row">
           <div className="col content">

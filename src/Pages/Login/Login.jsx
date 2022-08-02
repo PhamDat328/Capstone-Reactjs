@@ -1,20 +1,18 @@
 import React from "react";
 import "./Login.css";
-import { useSelector } from "react-redux";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Checkbox, Form, Input } from "antd";
 import { useNavigate } from "react-router-dom";
 // import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { handleUserLogin } from "../../Slice/user";
+import { history } from "../../App";
 
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const { userLogin } = useSelector(
-    (state) => state.userReducer.userLoginSlice
-  );
+
   // const { register, handleSubmit } = useForm({
   //   defaultValues: {
   //     taiKhoan: "",
@@ -29,8 +27,10 @@ const Login = () => {
 
   const onFinish = (value) => {
     dispatch(handleUserLogin(value));
-    alert("đăng nhập thành công")
-    // navigate("/purchase")
+    alert("đăng nhập thành công");
+    setTimeout(() => {
+      history.back();
+    }, 500);
   };
 
   return (

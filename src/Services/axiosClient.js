@@ -8,4 +8,27 @@ const axiosClient = axios.create({
   },
 });
 
+axiosClient.interceptors.request.use((config) => {
+  if (config.headers) {
+    const accessToken = localStorage.getItem("accessToken");
+    if (accessToken) {
+      config.headers.Authorization = `Bearer ${accessToken}`;
+    }
+  }
+  return config;
+});
+
+axiosClient.interceptors.response.use(
+  (reponse) => {
+    // request thành công
+    // thay đổi format của reponse trước khi trả ra cho nơi gọi request
+    return reponse;
+  },
+  (error) => {
+    // request thất bại
+    // thay đổi format của error trước khi trả ra cho nơi gọi request
+    return error.response?.data?.content;
+  }
+);
+
 export default axiosClient;

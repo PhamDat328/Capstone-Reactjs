@@ -1,9 +1,66 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { NavLink } from "react-router-dom";
-
+import { useSelector } from "react-redux";
+import _ from "lodash";
+import "./HeaderHome.css";
 const HeaderHome = () => {
+  const { userLogin } = useSelector(
+    (state) => state.userReducer.userLoginSlice
+  );
+
+  const renderLogin = () => {
+    if (_.isEmpty(userLogin)) {
+      return (
+        <Fragment>
+          <li className="nav-item">
+            <NavLink className="nav-link" to={"login"}>
+              Đăng nhập
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" to={"register"}>
+              Đăng ký
+            </NavLink>
+          </li>
+        </Fragment>
+      );
+    } else {
+      return (
+        <Fragment>
+          <li className="nav-item">
+            <NavLink className="nav-link" to={"/account"}>
+              {userLogin.hoTen}
+            </NavLink>
+          </li>
+          <hr />
+          <li className="nav-item">
+            <NavLink
+              onClick={() => {
+                localStorage.removeItem("userLogin");
+                localStorage.removeItem("accessToken");
+                window.location.reload()
+              }}
+              className="nav-link"
+              to={"/"}
+            >
+              Đăng xuất
+            </NavLink>
+          </li>
+        </Fragment>
+      );
+    }
+  };
+
   return (
-    <nav className="p-0 navbar navbar-expand-lg navbar-light ">
+    <nav
+      className="p-0 navbar navbar-expand-lg navbar-light "
+      style={{
+        position: "fixed",
+        zIndex: "2",
+        width: "100%",
+        backgroundColor: "rgba(255,255,255,.95)",
+      }}
+    >
       <div className="container-fluid ps-4 pe-4">
         <NavLink className="navbar-brand" to={"/"}>
           <img
@@ -20,22 +77,39 @@ const HeaderHome = () => {
         >
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#movieList">
+              <a
+                className="nav-link  "
+                aria-current="page"
+                href="#movieList"
+                style={{ fontWeight: "bold", marginRight: "10px" }}
+              >
                 Lịch Chiếu
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#cinema">
+              <a
+                className="nav-link"
+                href="#cinema"
+                style={{ fontWeight: "bold", marginRight: "10px" }}
+              >
                 Cụm Rạp
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <a
+                className="nav-link"
+                href="#news"
+                style={{ fontWeight: "bold", marginRight: "10px" }}
+              >
                 Tin Tức
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <a
+                className="nav-link"
+                href="#apps"
+                style={{ fontWeight: "bold", marginRight: "10px" }}
+              >
                 Ứng Dụng
               </a>
             </li>
@@ -46,18 +120,7 @@ const HeaderHome = () => {
           className="collapse navbar-collapse justify-content-end"
           id="navbarNav"
         >
-          <ul className="navbar-nav">
-            <li className="nav-item">
-              <NavLink className="nav-link" to={"login"}>
-                Đăng nhập
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to={"register"}>
-                Đăng ký
-              </NavLink>
-            </li>
-          </ul>
+          <ul className="navbar-nav">{renderLogin()}</ul>
         </div>
       </div>
     </nav>

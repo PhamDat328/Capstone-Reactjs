@@ -12,7 +12,7 @@ const News = () => {
 
   return (
     <>
-      <div className="news-container">
+      <div className="news-container" id="news">
         <div className="row">
           <div
             className="col col-md-4 news-item"
