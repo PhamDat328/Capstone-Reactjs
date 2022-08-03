@@ -6,5 +6,6 @@
 @media screen and (max-width: 576px) {
     #movieList{
         padding: 0 2rem;
+        margin-top: 60px !important;
     } 
 }

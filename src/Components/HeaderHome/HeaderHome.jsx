@@ -21,7 +21,7 @@ const HeaderHome = () => {
               className="nav-link d-flex align-items-center"
               to={"login"}
             >
-              <i class="fa fa-user mr-2"></i>
+              <i className="fa fa-user mr-2"></i>
               <p className="mb-0"> Đăng nhập</p>
             </NavLink>
           </li>
@@ -32,7 +32,7 @@ const HeaderHome = () => {
               className="nav-link d-flex align-items-center"
               to={"register"}
             >
-              <i class="fa fa-user mr-2"></i>
+              <i className="fa fa-user mr-2"></i>
               <p className="mb-0"> Đăng ký</p>
             </NavLink>
           </li>
@@ -73,7 +73,7 @@ const HeaderHome = () => {
               style={{ fontSize: "16px", fontWeight: "600" }}
               to={"/"}
             >
-              <i class="fa fa-sign-out-alt mr-2"></i>
+              <i className="fa fa-sign-out-alt mr-2"></i>
               <p className="mb-0">Đăng xuất</p>
             </NavLink>
           </li>
@@ -92,6 +92,7 @@ const HeaderHome = () => {
         right: 0,
         zIndex: 2,
         backgroundColor: "rgba(255, 255, 255, 0.95)",
+        backgroundColor: "rgba(235, 214, 214, 0.95)",
       }}
     >
       <div className="container-fluid ps-4 pe-4">
@@ -111,7 +112,7 @@ const HeaderHome = () => {
           <ul className="navbar-nav">
             <li className="nav-item">
               <a
-                className="nav-link  "
+                className="nav-link "
                 aria-current="page"
                 href="#movieList"
                 style={{ fontWeight: "bold", marginRight: "10px" }}
