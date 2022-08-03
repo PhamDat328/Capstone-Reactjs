@@ -86,6 +86,7 @@ const HeaderHome = () => {
     }
   };
   return (
+
     <nav className="px-4 py-0 navbar navbar-expand-lg navbar-light header-nav">
       <NavLink className="navbar-brand title" to={"/"}>
         <img
@@ -115,6 +116,7 @@ const HeaderHome = () => {
       >
         <div className="navbar-list">
           <ul className="navbar-nav justify-content-center">
+
             <li className="nav-item">
               <a
                 className="nav-link "
@@ -155,7 +157,9 @@ const HeaderHome = () => {
           </ul>
         </div>
 
+
         <div className="navbar-sign">
+
           <ul className="navbar-nav">{renderLogin()}</ul>
         </div>
       </div>
