@@ -22,7 +22,7 @@ const MovieItem = () => {
   }, [windowSize]);
   let settings = {};
   {
-    windowSize > 576
+    windowSize > 1024
       ? (settings = {
           className: "center",
           // centerMode: true,
@@ -34,6 +34,20 @@ const MovieItem = () => {
           rows: 2,
           slidesPerRow: 1,
           slidesToScroll: 4,
+        })
+      : windowSize > 576 && windowSize <= 1024
+      ? (settings = {
+          className: "center",
+          // centerMode: true,
+          dots: true,
+          infinite: true,
+          centerPadding: "80px",
+          slidesToShow: 3,
+          speed: 500,
+          rows: 3,
+          slidesPerRow: 1,
+          slidesToScroll: 4,
+          width: "80%",
         })
       : (settings = {
           className: "center",

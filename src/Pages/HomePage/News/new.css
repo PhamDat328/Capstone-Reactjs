@@ -99,10 +99,10 @@
     }
 
     .news-item {
+        width: calc(100% / 3);
         text-align: center;
         cursor: pointer;
         padding: 0 0.5rem;
         margin-bottom: 1rem;
-        
     }
 }

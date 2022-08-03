@@ -16,11 +16,7 @@
     cursor: pointer;
 }
 
-@media screen and (max-width: 576px) {
-    .carousel {
-        display: none;
-    }
-}
+
 
 .playTrailer i {
     color: rgb(247, 230, 230);
@@ -86,4 +82,16 @@
     top: 0;
     z-index: 5;
     cursor: pointer;
+}
+
+@media screen and (max-width: 700px) {
+    .carousel  {
+        display: none;
+    }
+}
+@media screen and (max-width: 1024px) {
+    .carousel .carousel-item img {
+        height: 40px;
+        /* width: /; */
+    }
 }

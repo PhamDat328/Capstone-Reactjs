@@ -79,7 +79,7 @@
   text-decoration: underline;
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 900px) {
   .content {
     width: 100%;
     display: block;
@@ -125,21 +125,19 @@
     top: 0;
     left: 0;
     width: 100%;
-    padding: 3.6% 28.9% 0% 29.2%;
-    position: absolute;
+    padding: 3.6% 28% 0% 28%;
   }
 
   .banner-img-app {
     max-width: 100%;
     height: auto;
-    padding: 0 26%;
+    padding: 0 20%;
     display: block;
     position: relative;
   }
 
   .banner-img {
     position: relative;
-    /* top: 50px; */
     flex: none;
   }
 }

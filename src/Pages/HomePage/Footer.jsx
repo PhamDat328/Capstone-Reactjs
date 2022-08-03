@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <div className="wrap">
       <div className="footer-container">
-        <div className="row">
+        <div className="row footer-partner">
           <div className="col-md-4 row footer-branch">
             <div className="footer-title">TIX</div>
             <div className="col-md-6">

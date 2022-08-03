@@ -71,12 +71,10 @@ const CinemaList = () => {
     }
   };
 
-  const handleWindowResize = () => {};
-
   return (
     <>
       <div className="cinema-container" id="cinema">
-        <div className="row">
+        <div className="row cinema-row">
           <div className="cinema-logo">
             {cinemaList.map((item, index) => {
               return (
