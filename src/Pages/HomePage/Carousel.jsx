@@ -78,7 +78,7 @@ const Carousel = () => {
                   <img
                     src={bannerMovie.hinhAnh}
                     className="d-block w-100"
-                    style={{ height: "630px" }}
+                   
                     alt={bannerMovie.maBanner}
                   />
                   <PlayTrailer
