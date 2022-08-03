@@ -81,7 +81,6 @@ const HeaderHome = () => {
       );
     }
   };
-
   return (
     <nav
       className="p-0 navbar navbar-expand-lg navbar-light"
@@ -92,7 +91,6 @@ const HeaderHome = () => {
         right: 0,
         zIndex: 2,
         backgroundColor: "rgba(255, 255, 255, 0.95)",
-        backgroundColor: "rgba(235, 214, 214, 0.95)",
       }}
     >
       <div className="container-fluid ps-4 pe-4">
