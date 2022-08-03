@@ -66,7 +66,8 @@ const MovieDetail = () => {
           </div>
           <div className="col-2">
             <div className="text-info-movie">
-              <h2 className="">{movieDetail.tenPhim} </h2>
+              <h2 className="">{movieDetail.tenPhim}
+               </h2>
               <p>Thời gian:  120 phút</p>
               <p>
                 Ngày khởi chiếu:{" "}
