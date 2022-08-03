@@ -2,21 +2,36 @@
   background-color: #0a2029;
   /* height: 1250px; */
   min-height: 100vh;
-
+  background-image: url("https://tcdtist-tix-clone.vercel.app/static/media/backapp.b46ef3a1.jpg");
+  min-height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 .movie-container {
   padding-top: 150px;
-  
+  max-width: 1280px;
 }
 .movie-container .row {
   display: flex;
   padding: 0 12rem;
-  align-items: center;
+  /* align-items: center; */
 }
 .movie-image {
   transition: all 0.5s;
 }
-
+.movieDescription {
+  display: block;
+  display: -webkit-box;
+  height: 16px * 1.3 * 3;
+  font-size: 16px;
+  line-height: 1.3;
+  -webkit-line-clamp: 3; /* số dòng hiển thị */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 10px;
+}
 .col-1 {
   width: 25%;
 }
@@ -36,6 +51,7 @@
 
 .text-info-movie {
   color: #fff;
+  margin-top: 1rem;
 }
 
 .movie-image:hover .btnTrailer {
@@ -45,10 +61,14 @@
 .text-info-movie h2 {
   font-size: 1.5rem;
   font-weight: bold;
+  font-size: 30px;
+  color: #fb4226;
+
 }
 .text-info-movie p {
   margin-top: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+  font-size: 17px;
 }
 
 .text-info-movie a {

@@ -14,12 +14,12 @@ import "antd/dist/antd.css";
 const MovieDetail = () => {
   const { TabPane } = Tabs;
   const [modalShow, setModalShow] = useState(false);
-  const [eventKey, setEventKey] = useState("");
   const { movieId } = useParams();
 
   const { movieDetail } = useSelector(
     (state) => state.movieReducer.movieDetail
   );
+  console.log(movieDetail);
   const { movieDetailSchedule } = useSelector(
     (state) => state.cinemaReducer.movieDetailSchedule
   );
@@ -66,11 +66,15 @@ const MovieDetail = () => {
           </div>
           <div className="col-2">
             <div className="text-info-movie">
-              <h2 className="text-white">{movieDetail.tenPhim} </h2>
-              <p>120 phút</p>
-              <a href="#">
-                <span>Mua vé</span>
-              </a>
+              <h2 className="">{movieDetail.tenPhim}
+               </h2>
+              <p>Thời gian:  120 phút</p>
+              <p>
+                Ngày khởi chiếu:{" "}
+                {dayjs(movieDetail.ngayKhoiChieu).format("DD-MM-YYYY ")}
+              </p>
+              <p>NỘI DUNG PHIM :</p>
+              <p className="movieDescription">{movieDetail.moTa}</p>
             </div>
           </div>
           <div className="col-3">

@@ -1,12 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./Login.css";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Checkbox, Form, Input } from "antd";
 import { useNavigate } from "react-router-dom";
 // import { useForm } from "react-hook-form";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { handleUserLogin } from "../../Slice/user";
-import { history } from "../../App";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -26,10 +25,6 @@ const Login = () => {
 
   const onFinish = (value) => {
     dispatch(handleUserLogin(value));
-    // alert("đăng nhập thành công");
-    // setTimeout(() => {
-    //   history.back();
-    // }, 500);
   };
 
   return (

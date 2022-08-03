@@ -41,7 +41,7 @@ const ticketSlice = createSlice({
         (chair) => chair.maGhe === payload.maGhe
       );
 
-      if (index != -1) {
+      if (index !== -1) {
         state.bookingChairList.splice(index, 1);
       } else {
         state.bookingChairList.push(payload);
