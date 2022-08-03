@@ -96,16 +96,21 @@
 
   .footer-info {
     padding-left: 12px;
+    text-align: center;
 }
 
   .footer-company-logo img {
     margin: 0 auto;
+    height: 150px;
   }
 
   .footer-checked {
     width: 300px;
   }
-
+  .footer-checked img {
+    height: 80px;
+    margin: auto;
+  }
   .footer-container {
     padding: 40px 3rem;
 }

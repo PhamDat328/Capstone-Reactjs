@@ -9,59 +9,52 @@ const MovieItem = () => {
   const { movieShowing } = useSelector((state) => state.movieReducer.movieList);
 
   const dispatch = useDispatch();
-  const [windowSize, setWindowSize] = useState(window.innerWidth);
 
   useEffect(() => {
     dispatch(getMovieShowing());
   }, []);
 
-  useEffect(() => {
-    window.addEventListener("resize", () => {
-      setWindowSize(window.innerWidth);
-    });
-  }, [windowSize]);
   let settings = {};
   {
-    windowSize > 1024
-      ? (settings = {
-          className: "center",
-          // centerMode: true,
-          dots: true,
-          infinite: true,
-          centerPadding: "80px",
-          slidesToShow: 4,
-          speed: 500,
-          rows: 2,
-          slidesPerRow: 1,
-          slidesToScroll: 4,
-        })
-      : windowSize > 576 && windowSize <= 1024
-      ? (settings = {
-          className: "center",
-          // centerMode: true,
-          dots: true,
-          infinite: true,
-          centerPadding: "80px",
-          slidesToShow: 3,
-          speed: 500,
-          rows: 3,
-          slidesPerRow: 1,
-          slidesToScroll: 4,
-          width: "80%",
-        })
-      : (settings = {
-          className: "center",
-          // centerMode: true,
-          dots: true,
-          infinite: true,
-          centerPadding: "80px",
-          slidesToShow: 1,
-          speed: 500,
-          rows: 4,
-          slidesPerRow: 1,
-          slidesToScroll: 4,
-          width: "80%",
-        });
+    settings = {
+      className: "center",
+      // centerMode: true,
+      dots: true,
+      infinite: true,
+      centerPadding: "80px",
+      slidesToShow: 4,
+      speed: 500,
+      rows: 2,
+      slidesPerRow: 1,
+      slidesToScroll: 4,
+      responsive: [
+        {
+          breakpoint: 992,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true,
+            dots: true,
+            active: true,
+          },
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            initialSlide: 2,
+          },
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+          },
+        },
+      ],
+    };
   }
 
   return (
