@@ -8,6 +8,10 @@ const userAPI = {
   getUserInfo: () => {
     return axiosClient.post("QuanLyNguoiDung/ThongTinTaiKhoan");
   },
+
+  createUserRegister: (user) => {
+    return axiosClient.post("QuanLyNguoiDung/DangKy", user);
+  },
 };
 
 export default userAPI;

@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addBookedChair,
@@ -11,7 +11,6 @@ import Swal from "sweetalert2";
 
 import "./Purchase.css";
 const Purchase = () => {
-  const navigate = useNavigate();
 
   const { showtimeId } = useParams();
   const { ticketList, bookingChairList } = useSelector((state) => state.ticket);
